@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+body {
+    background-image: url(img/forestbg1.png);
+}
+#div1 {
+    width: 70px;
+    height: 70px;
+    /*padding: 10px;*/
+    border: 1px solid #aaaaaa;
+    background-image: url(img/box2.png);
+    position: absolute;
+    top: 15%;
+    left:20%;
+}
+#drag1 {
+    
+   
+    bottom:20%;
+    left:45%;
+   position: absolute;
+}
+#drag2 {
+    
+   
+    bottom:20%;
+    left:65%;
+   position: absolute;
+}
+#drag3
+{
+    
+   
+    bottom:20%;
+    float left:85%;
+   position: absolute;
+}
+</style>
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+    ev.stopPropagation();
+
+}
+
+</script>
+</head>
+<body>
+
+ 
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<img id="drag1" src="img/flower2.png" draggable="true" ondragstart="drag(event)" width="70" height="70">
+<img id="drag2" src="img/flower2.png" draggable="true" ondragstart="drag(event)" width="70" height="70">
+<img id="drag3" src="img/flower2.png" draggable="true" ondragstart="drag(event)" width="70" height="70">
+
+</body>
+</html>
